@@ -11,18 +11,18 @@ class Habit(models.Model):
     location = models.CharField(
         max_length=255,
         verbose_name="Локация",
-        help_text="Укажите локацию, в которой необходимо выполнять привычку"
+        help_text="Укажите локацию, в которой необходимо выполнять привычку",
     )
     time = models.TimeField(
         auto_now=False,
         auto_now_add=False,
         verbose_name="Время выполнения привычки",
-        help_text="Установите время, когда необходимо выполнять привычку"
+        help_text="Установите время, когда необходимо выполнять привычку",
     )
     action = models.CharField(
         max_length=100,
         verbose_name="Активность",
-        help_text="Укажите действие, которое нужно совершить"
+        help_text="Укажите действие, которое нужно совершить",
     )
     estimated_time = models.IntegerField(
         verbose_name="Время потраченное на выполнение (в секундах)"
@@ -30,7 +30,7 @@ class Habit(models.Model):
     periodicity = models.IntegerField(
         default=1,
         verbose_name="Периодичность в днях",
-        help_text="Укажите периодичность выполнения привычки в днях (по умолчанию ежедневная)"
+        help_text="Укажите периодичность выполнения привычки в днях (по умолчанию ежедневная)",
     )
     nice_habit = models.BooleanField(
         default=True, verbose_name="Приятная привычка", **NULLABLE
