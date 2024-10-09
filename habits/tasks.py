@@ -12,7 +12,9 @@ def telegram_notification():
     current_time = datetime.now(zone)
     current_time_less = current_time - timedelta(minutes=5)
 
-    habits = Habit.objects.filter(time__lte=current_time.time(), time__gte=current_time_less.time())
+    habits = Habit.objects.filter(
+        time__lte=current_time.time(), time__gte=current_time_less.time()
+    )
 
     for habit in habits:
         user_tg = habit.owner.tg_chat_id

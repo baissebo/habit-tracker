@@ -21,14 +21,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "rest_framework",
     "django_filters",
     "rest_framework_simplejwt",
     "django_celery_beat",
     "drf_yasg",
     "corsheaders",
-
     "habits",
     "users",
 ]
@@ -134,9 +132,9 @@ CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
 CELERY_BEAT_SCHEDULE = {
-    "deactivate_users": {
-        "task": "users.tasks.deactivate_users",
-        "schedule": timedelta(days=1),
+    "telegram_notification": {
+        "task": "habits.tasks.telegram_notification",
+        "schedule": timedelta(minutes=5),
     },
 }
 
